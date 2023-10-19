@@ -6,7 +6,7 @@ Window {
     width: 800
     height: 480
     visible: true
-    color: "floralwhite"
+    color: "lightgray"
 
     PComponent.PButton {
         id: menuButton
@@ -15,5 +15,14 @@ Window {
         width: 48
         height: 48
         icon.source: IconSet.menu
+        onClicked: menu.displayed = !menu.displayed
+    }
+
+    PComponent.PMenu {
+        id: menu
+        x: 10
+        y: 60
+        width: 48
+        height: 48 * 8
     }
 }

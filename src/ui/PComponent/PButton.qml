@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Effects
+import Qt5Compat.GraphicalEffects
 
 Button {
     id: root
