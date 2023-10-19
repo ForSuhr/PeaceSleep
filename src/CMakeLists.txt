@@ -33,6 +33,7 @@ qt_add_qml_module(PeaceSleep
         #PeaceSleep Component
         ui/PComponent/PButton.qml
         ui/PComponent/PMenu.qml
+        ui/PComponent/PDial.qml
 )
 
 set_target_properties(PeaceSleep PROPERTIES

@@ -15,7 +15,7 @@ Item {
         id: fadeIn
         target: rect
         property: "opacity"
-        from: 1
+        from: 0.8
         to: 0
         duration: 200
         onStopped: rect.visible = displayed
@@ -26,7 +26,7 @@ Item {
         target: rect
         property: "opacity"
         from: 0
-        to: 1
+        to: 0.8
         duration: 200
         onStarted: rect.visible = displayed
     }
@@ -34,9 +34,11 @@ Item {
     Rectangle {
         id: rect
         anchors.fill: parent
-        color: "floralwhite"
-        radius: 24
         visible: false
+        color: "transparent"
+        border.color: "black"
+        border.width: 2
+        radius: 24
     }
 
     //    ListView {}
