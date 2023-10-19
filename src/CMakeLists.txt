@@ -23,12 +23,14 @@ qt_add_qml_module(PeaceSleep
     RESOURCES
         # app icons
         ui/assets/icons/menu.svg
+        ui/assets/icons/play.svg
+        ui/assets/icons/stop.svg
         ui/assets/icons/rain.svg
         ui/assets/icons/thunder.svg
         ui/assets/icons/wave.svg
     QML_FILES
         ui/Main.qml
-        ui/PSideBar.qml
+        ui/PMenu.qml
         ui/PDragSound.qml
         ui/PDropSound.qml
         # singleton
@@ -37,7 +39,6 @@ qt_add_qml_module(PeaceSleep
         ui/SoundSet.qml
         #PeaceSleep Component
         ui/PComponent/PButton.qml
-        ui/PComponent/PMenu.qml
         ui/PComponent/PDial.qml
 )
 

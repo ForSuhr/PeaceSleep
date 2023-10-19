@@ -9,6 +9,15 @@ Window {
     color: "cadetblue"
 
     PComponent.PButton {
+        id: playButton
+        x: parent.width - width - 10
+        y: 10
+        width: 48
+        height: 48
+        icon.source: IconSet.play
+    }
+
+    PComponent.PButton {
         id: menuButton
         x: 10
         y: 10
@@ -18,7 +27,7 @@ Window {
         onClicked: menu.displayed = !menu.displayed
     }
 
-    PComponent.PMenu {
+    PMenu {
         id: menu
         x: 10
         y: 60

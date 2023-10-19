@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 
 Item {
     id: root
@@ -39,6 +40,29 @@ Item {
         border.color: "black"
         border.width: 2
         radius: 24
+
+        ColumnLayout {
+            anchors.fill: parent
+            spacing: 10
+
+            PDragSound {
+                Layout.topMargin: 10
+                Layout.alignment: Qt.AlignHCenter
+                imgSrc: IconSet.rain
+            }
+            PDragSound {
+                Layout.alignment: Qt.AlignHCenter
+                imgSrc: IconSet.thunder
+            }
+            PDragSound {
+                Layout.alignment: Qt.AlignHCenter
+                imgSrc: IconSet.wave
+            }
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
+        }
     }
 
     //    ListView {}

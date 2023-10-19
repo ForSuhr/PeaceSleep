@@ -1,5 +1,5 @@
 import QtQuick
-import QtQuick.Controls.Basic
+import QtQuick.Controls.Universal
 import QtQuick.Effects
 
 Button {
