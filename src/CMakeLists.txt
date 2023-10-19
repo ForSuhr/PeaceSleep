@@ -14,6 +14,7 @@ qt_add_executable(PeaceSleep
 
 set_source_files_properties(ui/Globals.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 set_source_files_properties(ui/IconSet.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
+set_source_files_properties(ui/SoundSet.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 
 
 qt_add_qml_module(PeaceSleep
@@ -22,6 +23,9 @@ qt_add_qml_module(PeaceSleep
     RESOURCES
         # app icons
         ui/assets/icons/menu.svg
+        ui/assets/icons/rain.svg
+        ui/assets/icons/thunder.svg
+        ui/assets/icons/wave.svg
     QML_FILES
         ui/Main.qml
         ui/PSideBar.qml
@@ -30,6 +34,7 @@ qt_add_qml_module(PeaceSleep
         # singleton
         ui/Globals.qml
         ui/IconSet.qml
+        ui/SoundSet.qml
         #PeaceSleep Component
         ui/PComponent/PButton.qml
         ui/PComponent/PMenu.qml
