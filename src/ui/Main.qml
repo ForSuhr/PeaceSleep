@@ -31,6 +31,7 @@ Window {
         id: menu
         x: 10
         y: 60
+        z: 1
         width: 48
         height: 48 * 8
     }
@@ -46,17 +47,20 @@ Window {
         id: slot1
         x: 360
         y: 31
+        z: 0
     }
 
     PDropSound {
         id: slot2
         x: 214
         y: 297
+        z: 0
     }
 
     PDropSound {
         id: slot3
         x: 506
         y: 297
+        z: 0
     }
 }

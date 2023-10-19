@@ -49,14 +49,17 @@ Item {
                 Layout.topMargin: 10
                 Layout.alignment: Qt.AlignHCenter
                 imgSrc: IconSet.rain
+                dragKey: "rain"
             }
             PDragSound {
                 Layout.alignment: Qt.AlignHCenter
                 imgSrc: IconSet.thunder
+                dragKey: "thunder"
             }
             PDragSound {
                 Layout.alignment: Qt.AlignHCenter
                 imgSrc: IconSet.wave
+                dragKey: "wave"
             }
             Item {
                 Layout.fillWidth: true
