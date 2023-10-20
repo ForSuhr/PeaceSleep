@@ -10,6 +10,7 @@ find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Widgets)
 
 qt_add_executable(PeaceSleep
     main.cpp
+    "ui/assets/appIcon/PeaceSleep.rc"
 )
 
 set_source_files_properties(ui/Globals.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
@@ -21,7 +22,9 @@ qt_add_qml_module(PeaceSleep
     URI PeaceSleep
     VERSION 1.0
     RESOURCES
-        # app icons
+        # app icon
+        ui/assets/appIcon/PeaceSleep.png
+        # icons
         ui/assets/icons/menu.svg
         ui/assets/icons/play.svg
         ui/assets/icons/stop.svg
