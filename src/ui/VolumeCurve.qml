@@ -22,6 +22,7 @@ Popup {
     property int timeMax: 120
     property int timeMin: 0
     property int time: 60 * 60 // in seconds
+    property int volume: 60
 
     ChartView {
         id: chart
@@ -42,13 +43,14 @@ Popup {
         ValueAxis {
             id: axisX
             min: 0
-            max: 100
+            max: 120
             tickCount: 5
             gridLineColor: "#444444"
             color: "black"
             labelsFont.bold: true
             labelsFont.pixelSize: 24
-            labelFormat: "%i%"
+            labelFormat: "%i"
+            titleText: "Minute"
         }
 
         ValueAxis {
@@ -126,23 +128,23 @@ Popup {
         id: dataModel
         ListElement {
             x: 0
-            y: 60
+            y: 20
         }
         ListElement {
-            x: 25
+            x: 30
+            y: 25
+        }
+        ListElement {
+            x: 60
             y: 50
         }
         ListElement {
-            x: 50
-            y: 40
+            x: 90
+            y: 75
         }
         ListElement {
-            x: 75
-            y: 30
-        }
-        ListElement {
-            x: 100
-            y: 10
+            x: 120
+            y: 80
         }
     }
 
@@ -158,13 +160,36 @@ Popup {
         interval: 1000
         repeat: true
         onTriggered: {
-            console.log("time in seconds: " + time)
+            // countdown
             if (time <= 0) {
                 timer.stop()
                 timeIsUp()
             } else
                 time--
+
+            // adjust volume
+            let minutes = Math.floor(time / 60)
+            volume = interpolator(minutes)
         }
+    }
+
+    function interpolator(givenX) {
+        for (var i = 0; i < dataModel.count; i++) {
+            if (i === dataModel.count - 1)
+                continue
+
+            var x1 = splineSeries.at(i).x
+            var y1 = splineSeries.at(i).y
+            var x2 = splineSeries.at(i + 1).x
+            var y2 = splineSeries.at(i + 1).y
+
+            if (x1 <= givenX && givenX <= x2) {
+                var givenY = Math.round(
+                            y1 + (y2 - y1) * (givenX - x1) / (x2 - x1))
+                return givenY
+            }
+        }
+        return volume
     }
 
     PComponent.PButton {
@@ -197,8 +222,9 @@ Popup {
         stepSize: 1.0
         from: timeMin
         to: timeMax
-        value: Math.round(time / 60) // in minutes
+        value: 60 // in minutes
         onValueChanged: time = value * 60
+        Component.onCompleted: value = Math.round(time / 60)
     }
 
     Label {

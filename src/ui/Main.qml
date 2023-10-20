@@ -95,7 +95,7 @@ Window {
         anchors.centerIn: parent
         from: 0
         to: 100
-        value: 60
+        value: volumeCurve.volume
 
         PDropSound {
             id: slot1
