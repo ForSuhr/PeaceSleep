@@ -26,11 +26,21 @@ Item {
         anchors.centerIn: parent
         scale: 0.6
         mipmap: true
+        TapHandler {
+            onDoubleTapped: {
+                imgSrc = ""
+                mediaPlayer.stop()
+                mediaPlayer.source = ""
+            }
+        }
     }
 
     DropArea {
         id: dropArea
-        anchors.fill: parent
+        scale: 2
+        width: parent.width
+        height: parent.height
+        anchors.centerIn: parent
         keys: ["rain", "thunder", "wave"]
         onDropped: drop => {
                        let key = drop.keys[0]
