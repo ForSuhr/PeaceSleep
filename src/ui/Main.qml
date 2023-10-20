@@ -59,23 +59,29 @@ Window {
         width: 200
         height: 200
         anchors.centerIn: parent
+        from: 0
+        to: 100
+        value: 60
 
         PDropSound {
             id: slot1
             x: 60
             y: -93
+            mainVolume: dial.value
         }
 
         PDropSound {
             id: slot2
             x: -74
             y: 160
+            mainVolume: dial.value
         }
 
         PDropSound {
             id: slot3
             x: 197
             y: 160
+            mainVolume: dial.value
         }
     }
 }

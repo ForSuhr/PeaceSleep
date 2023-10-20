@@ -8,6 +8,7 @@ Item {
 
     property alias imgSrc: img.source
     property alias mediaPlayer: mediaPlayer
+    property real mainVolume: 0
 
     Rectangle {
         id: rect
@@ -44,5 +45,11 @@ Item {
 
     PMediaPlayer {
         id: mediaPlayer
+        audioOutput: audioOutput
+    }
+
+    AudioOutput {
+        id: audioOutput
+        volume: mainVolume / 100
     }
 }
