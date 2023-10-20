@@ -167,7 +167,7 @@ Popup {
             } else
                 time--
 
-            // adjust volume
+            // adjust volume according to the volume curve
             let minutes = Math.floor(time / 60)
             volume = interpolator(minutes)
         }
