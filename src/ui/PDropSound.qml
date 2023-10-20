@@ -5,6 +5,8 @@ Item {
     width: 80
     height: width
 
+    signal ballDropped(string key)
+
     Rectangle {
         id: rect
         anchors.fill: parent
@@ -18,8 +20,11 @@ Item {
         id: dropArea
         anchors.fill: parent
         keys: ["rain", "thunder", "wave"]
-        onDropped: {
-            console.log("dropped")
-        }
+        onDropped: drop => {
+                       for (var i = 0; i < drop.keys.length; i++) {
+                           var key = drop.keys[i]
+                           ballDropped(key)
+                       }
+                   }
     }
 }

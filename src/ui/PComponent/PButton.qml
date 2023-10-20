@@ -13,6 +13,6 @@ Button {
         opacity: 0.5
         shadowEnabled: true
         blurEnabled: true
-        blur: 1
+        blur: 0.8
     }
 }

@@ -33,6 +33,7 @@ qt_add_qml_module(PeaceSleep
         ui/PMenu.qml
         ui/PDragSound.qml
         ui/PDropSound.qml
+        ui/SoundBall.qml
         # singleton
         ui/Globals.qml
         ui/IconSet.qml
@@ -40,6 +41,8 @@ qt_add_qml_module(PeaceSleep
         #PeaceSleep Component
         ui/PComponent/PButton.qml
         ui/PComponent/PDial.qml
+        # JS
+        ui/SoundBallCreator.js
 )
 
 set_target_properties(PeaceSleep PROPERTIES

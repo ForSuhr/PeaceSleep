@@ -1,13 +1,13 @@
 import QtQuick
-import "SoundBallCreator.js" as SoundBallCreator
 
 Item {
     id: root
-    width: 32
+    width: 80
     height: width
 
     property alias imgSrc: img.source
     property string dragKey
+    property bool dragActive: false
 
     Rectangle {
         id: rect
@@ -27,11 +27,13 @@ Item {
         mipmap: true
     }
 
+    Drag.active: dragActive
+    Drag.keys: [dragKey]
+
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-        onPressed: mouse => SoundBallCreator.startDrag(mouse)
-        onPositionChanged: mouse => SoundBallCreator.continueDrag(mouse)
-        onReleased: SoundBallCreator.endDrag()
+        drag.target: root
+        onReleased: root.Drag.drop()
     }
 }
