@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <QCoreApplication>
-#include <QIcon>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
@@ -24,9 +23,6 @@ int main(int argc, char* argv[])
         Qt::QueuedConnection);
     engine.rootContext()->setContextProperty("applicationDirPath", QString(QCoreApplication::applicationDirPath()));
     engine.load(url);
-
-    /*window icon*/
-    app.setWindowIcon(QIcon(":/PeaceSleep/ui/assets/appIcon/PeaceSleep.png"));
 
     return app.exec();
 }
