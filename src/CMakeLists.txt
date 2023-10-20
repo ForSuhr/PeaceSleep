@@ -34,6 +34,7 @@ qt_add_qml_module(PeaceSleep
         ui/PDragSound.qml
         ui/PDropSound.qml
         ui/SoundBall.qml
+        ui/PMediaPlayer.qml
         # singleton
         ui/Globals.qml
         ui/IconSet.qml

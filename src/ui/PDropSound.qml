@@ -7,6 +7,7 @@ Item {
     height: width
 
     property alias imgSrc: img.source
+    property alias mediaPlayer: mediaPlayer
 
     Rectangle {
         id: rect
@@ -34,14 +35,14 @@ Item {
                        let key = drop.keys[0]
                        imgSrc = IconSet.iconMap[key]
                        mediaPlayer.source = SoundSet.soundMap[key]
+                       if (playButton.isPlaying)
                        mediaPlayer.play()
+                       else
+                       mediaPlayer.pause()
                    }
     }
 
-    MediaPlayer {
+    PMediaPlayer {
         id: mediaPlayer
-        audioOutput: AudioOutput {
-            volume: 0.5
-        }
     }
 }
