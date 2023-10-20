@@ -46,27 +46,18 @@ Window {
             id: slot1
             x: 60
             y: -93
-            onBallDropped: key => {
-                               console.log(key + " dropped on " + "slot1")
-                           }
         }
 
         PDropSound {
             id: slot2
             x: -74
             y: 160
-            onBallDropped: key => {
-                               console.log(key + " dropped on " + "slot2")
-                           }
         }
 
         PDropSound {
             id: slot3
             x: 197
             y: 160
-            onBallDropped: key => {
-                               console.log(key + " dropped on " + "slot3")
-                           }
         }
     }
 }

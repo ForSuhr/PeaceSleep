@@ -1,5 +1,7 @@
+#include <QCoreApplication>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 int main(int argc, char* argv[])
 {
@@ -19,6 +21,7 @@ int main(int argc, char* argv[])
                 QCoreApplication::exit(-1);
         },
         Qt::QueuedConnection);
+    engine.rootContext()->setContextProperty("applicationDirPath", QString(QCoreApplication::applicationDirPath()));
     engine.load(url);
 
     return app.exec();

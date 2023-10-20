@@ -83,5 +83,8 @@ release/
 releases/
 .cache/
 
+# Resource files
+sounds/
+
 # BackUp
 backup/

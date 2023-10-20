@@ -3,7 +3,13 @@ pragma Singleton
 import QtQuick
 
 QtObject {
-    property string rain: "qrc:/PeaceSleep/ui/assets/sounds/rain.wav"
-    property string thunder: "qrc:/PeaceSleep/ui/assets/sounds/thunder.wav"
-    property string wave: "qrc:/PeaceSleep/ui/assets/sounds/wave.wav"
+    property var soundMap: {
+        "rain": rain,
+        "thunder": thunder,
+        "wave": wave
+    }
+
+    property string rain: applicationDirPath + "/sounds/rain.wav"
+    property string thunder: applicationDirPath + "/sounds/thunder.wav"
+    property string wave: applicationDirPath + "/sounds/wave.wav"
 }
