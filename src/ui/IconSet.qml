@@ -10,9 +10,15 @@ QtObject {
     property var iconMap: {
         "rain": rain,
         "thunder": thunder,
-        "wave": wave
+        "wave": wave,
+        "fire": fire,
+        "mountain": mountain,
+        "night": night
     }
     property string rain: "qrc:/PeaceSleep/ui/assets/icons/rain.svg"
     property string thunder: "qrc:/PeaceSleep/ui/assets/icons/thunder.svg"
     property string wave: "qrc:/PeaceSleep/ui/assets/icons/wave.svg"
+    property string fire: "qrc:/PeaceSleep/ui/assets/icons/fire.svg"
+    property string mountain: "qrc:/PeaceSleep/ui/assets/icons/mountain.svg"
+    property string night: "qrc:/PeaceSleep/ui/assets/icons/night.svg"
 }

@@ -26,6 +26,7 @@ Item {
         anchors.centerIn: parent
         scale: 0.6
         mipmap: true
+        fillMode: Qt.KeepAspectRatio
         TapHandler {
             onDoubleTapped: {
                 imgSrc = ""
@@ -41,7 +42,7 @@ Item {
         width: parent.width
         height: parent.height
         anchors.centerIn: parent
-        keys: ["rain", "thunder", "wave"]
+        keys: ["rain", "thunder", "wave", "night", "fire", "mountain"]
         onDropped: drop => {
                        let key = drop.keys[0]
                        imgSrc = IconSet.iconMap[key]

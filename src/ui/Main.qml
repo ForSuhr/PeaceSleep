@@ -13,8 +13,10 @@ Window {
         id: playButton
         x: parent.width - width - 10
         y: 10
-        width: 48
-        height: 48
+        width: 40
+        height: 40
+        icon.width: 40
+        icon.height: 40
         icon.source: isPlaying ? IconSet.stop : IconSet.play
         property bool isPlaying
         onClicked: {
@@ -42,6 +44,8 @@ Window {
         y: 10
         width: 48
         height: 48
+        icon.width: 48
+        icon.height: 48
         icon.source: IconSet.menu
         onClicked: menu.displayed = !menu.displayed
     }

@@ -48,6 +48,11 @@ Item {
             PDragSound {
                 Layout.topMargin: 10
                 Layout.alignment: Qt.AlignHCenter
+                imgSrc: IconSet.night
+                dragKey: "night"
+            }
+            PDragSound {
+                Layout.alignment: Qt.AlignHCenter
                 imgSrc: IconSet.rain
                 dragKey: "rain"
             }
@@ -55,6 +60,16 @@ Item {
                 Layout.alignment: Qt.AlignHCenter
                 imgSrc: IconSet.thunder
                 dragKey: "thunder"
+            }
+            PDragSound {
+                Layout.alignment: Qt.AlignHCenter
+                imgSrc: IconSet.fire
+                dragKey: "fire"
+            }
+            PDragSound {
+                Layout.alignment: Qt.AlignHCenter
+                imgSrc: IconSet.mountain
+                dragKey: "mountain"
             }
             PDragSound {
                 Layout.alignment: Qt.AlignHCenter

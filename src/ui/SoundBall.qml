@@ -25,6 +25,7 @@ Item {
         anchors.centerIn: parent
         scale: 0.6
         mipmap: true
+        fillMode: Qt.KeepAspectRatio
     }
 
     Drag.active: dragActive
