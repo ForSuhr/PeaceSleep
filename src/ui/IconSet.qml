@@ -6,6 +6,7 @@ QtObject {
     property string menu: "qrc:/PeaceSleep/ui/assets/icons/menu.svg"
     property string play: "qrc:/PeaceSleep/ui/assets/icons/play.svg"
     property string stop: "qrc:/PeaceSleep/ui/assets/icons/stop.svg"
+    property string stopwatch: "qrc:/PeaceSleep/ui/assets/icons/stopwatch.svg"
 
     property var iconMap: {
         "rain": rain,

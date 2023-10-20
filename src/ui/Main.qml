@@ -13,10 +13,10 @@ Window {
         id: playButton
         x: parent.width - width - 10
         y: 10
-        width: 40
-        height: 40
-        icon.width: 40
-        icon.height: 40
+        width: 48
+        height: 48
+        icon.width: 48
+        icon.height: 48
         icon.source: isPlaying ? IconSet.stop : IconSet.play
         property bool isPlaying
         onClicked: {
@@ -36,6 +36,27 @@ Window {
             else
                 slot3.mediaPlayer.play()
         }
+    }
+
+    PComponent.PButton {
+        id: timerButton
+        x: parent.width - width - 10
+        y: playButton.y + playButton.height + 10
+        width: 48
+        height: 48
+        icon.width: 48
+        icon.height: 48
+        icon.source: IconSet.stopwatch
+        onClicked: volumeCurve.open()
+    }
+
+    VolumeCurve {
+        id: volumeCurve
+        scale: 0.82
+        x: (parent.width - width) / 2
+        y: (parent.height - height) / 2
+        width: parent.width
+        height: parent.height
     }
 
     PComponent.PButton {

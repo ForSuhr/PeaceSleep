@@ -1,11 +1,11 @@
+#include <QApplication>
 #include <QCoreApplication>
-#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
 int main(int argc, char* argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     /*qml register*/
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/PeaceSleep/ui/Globals.qml")), "PeaceSleep.Globals", 1, 0, "Globals");

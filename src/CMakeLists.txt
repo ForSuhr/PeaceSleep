@@ -5,7 +5,7 @@ project(PeaceSleep VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Quick)
+find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Widgets)
 
 
 qt_add_executable(PeaceSleep
@@ -25,6 +25,7 @@ qt_add_qml_module(PeaceSleep
         ui/assets/icons/menu.svg
         ui/assets/icons/play.svg
         ui/assets/icons/stop.svg
+        ui/assets/icons/stopwatch.svg
         ui/assets/icons/rain.svg
         ui/assets/icons/thunder.svg
         ui/assets/icons/wave.svg
@@ -38,6 +39,7 @@ qt_add_qml_module(PeaceSleep
         ui/PDropSound.qml
         ui/SoundBall.qml
         ui/PMediaPlayer.qml
+        ui/VolumeCurve.qml
         # singleton
         ui/Globals.qml
         ui/IconSet.qml
@@ -47,7 +49,6 @@ qt_add_qml_module(PeaceSleep
         ui/PComponent/PDial.qml
         # JS
         ui/SoundBallCreator.js
-        QML_FILES ui/VolumeCurve.qml
 )
 
 set_target_properties(PeaceSleep PROPERTIES
@@ -60,6 +61,7 @@ set_target_properties(PeaceSleep PROPERTIES
 
 target_link_libraries(PeaceSleep
     PRIVATE Qt6::Quick
+    PRIVATE Qt6::Widgets
 )
 
 include(GNUInstallDirs)
