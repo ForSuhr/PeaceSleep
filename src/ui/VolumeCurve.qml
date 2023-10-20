@@ -1,6 +1,9 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Basic
+import QtQuick.Layouts
 import QtCharts
+import "PComponent" as PComponent
 
 Popup {
     id: root
@@ -11,12 +14,21 @@ Popup {
         color: "cadetblue"
         radius: 30
         border.width: 2
-        border.color: "lightgray"
+        border.color: "black"
     }
+
+    signal timeIsUp
+
+    property int timeMax: 120
+    property int timeMin: 0
+    property int time: 60 * 60 // in seconds
 
     ChartView {
         id: chart
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: parent.height - 50
         antialiasing: true
         backgroundColor: "cadetblue"
         backgroundRoundness: 30
@@ -30,20 +42,25 @@ Popup {
         ValueAxis {
             id: axisX
             min: 0
-            max: 60
+            max: 100
             tickCount: 5
+            gridLineColor: "#444444"
+            color: "black"
             labelsFont.bold: true
             labelsFont.pixelSize: 24
-            labelFormat: "%i"
+            labelFormat: "%i%"
         }
 
         ValueAxis {
             id: axisY
             min: 0
             max: 100
+            gridLineColor: "#444444"
+            color: "black"
             labelsFont.bold: true
             labelsFont.pixelSize: 24
             labelFormat: "%i"
+            titleText: "Volume"
         }
 
         SplineSeries {
@@ -112,19 +129,19 @@ Popup {
             y: 60
         }
         ListElement {
-            x: 15
+            x: 25
             y: 50
         }
         ListElement {
-            x: 30
+            x: 50
             y: 40
         }
         ListElement {
-            x: 45
+            x: 75
             y: 30
         }
         ListElement {
-            x: 60
+            x: 100
             y: 10
         }
     }
@@ -134,5 +151,74 @@ Popup {
             splineSeries.append(dataModel.get(i).x, dataModel.get(i).y)
             scatterSeries.append(dataModel.get(i).x, dataModel.get(i).y)
         }
+    }
+
+    Timer {
+        id: timer
+        interval: 1000
+        repeat: true
+        onTriggered: {
+            console.log("time in seconds: " + time)
+            if (time <= 0) {
+                timer.stop()
+                timeIsUp()
+            } else
+                time--
+        }
+    }
+
+    PComponent.PButton {
+        id: timerStartButton
+        width: 36
+        height: 36
+        anchors.right: slider.left
+        anchors.rightMargin: 10
+        anchors.verticalCenterOffset: 0
+        anchors.verticalCenter: slider.verticalCenter
+        icon.width: 36
+        icon.height: 36
+        icon.source: timer.running ? IconSet.stop : IconSet.play
+        onClicked: {
+            if (timer.running) {
+                timer.stop()
+            } else {
+                time = Math.round(slider.value * 60)
+                timer.restart()
+            }
+        }
+    }
+
+    Slider {
+        id: slider
+        width: parent.width - 300
+        height: 50
+        anchors.horizontalCenter: chart.horizontalCenter
+        anchors.top: chart.bottom
+        stepSize: 1.0
+        from: timeMin
+        to: timeMax
+        value: Math.round(time / 60) // in minutes
+        onValueChanged: time = value * 60
+    }
+
+    Label {
+        id: timeLabel
+        width: 50
+        height: 50
+        anchors.left: slider.right
+        anchors.leftMargin: 10
+        anchors.verticalCenterOffset: 8
+        anchors.verticalCenter: slider.verticalCenter
+        text: toHHMMSS(time)
+        font.bold: true
+        font.pixelSize: 24
+    }
+
+    function toHHMMSS(timeInSeconds) {
+        var hours = Math.floor(timeInSeconds / 3600)
+        var minutes = Math.floor(timeInSeconds / 60) % 60
+        var seconds = timeInSeconds % 60
+        return [hours, minutes, seconds].map(d => d < 10 ? "0" + d : d).filter(
+                    (d, i) => d !== "00" || i > 0).join(":")
     }
 }

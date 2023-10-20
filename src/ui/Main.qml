@@ -57,6 +57,15 @@ Window {
         y: (parent.height - height) / 2
         width: parent.width
         height: parent.height
+        onTimeIsUp: {
+            playButton.isPlaying = false
+            if (slot1.mediaPlayer.playing)
+                slot1.mediaPlayer.pause()
+            if (slot2.mediaPlayer.playing)
+                slot2.mediaPlayer.pause()
+            if (slot3.mediaPlayer.playing)
+                slot3.mediaPlayer.pause()
+        }
     }
 
     PComponent.PButton {
