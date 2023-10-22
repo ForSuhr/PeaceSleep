@@ -53,7 +53,7 @@ Window {
 
     VolumeCurve {
         id: volumeCurve
-        scale: 0.82
+        scale: 0.85
         x: (parent.width - width) / 2
         y: (parent.height - height) / 2
         width: parent.width

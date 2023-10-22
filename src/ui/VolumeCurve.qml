@@ -29,7 +29,7 @@ Popup {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        height: parent.height - 50
+        height: parent.height - 100
         antialiasing: true
         backgroundColor: "cadetblue"
         backgroundRoundness: 30
@@ -37,8 +37,8 @@ Popup {
         plotAreaColor: "cadetblue"
 
         property var selectedPoint: undefined
-        property real toleranceX: 5
-        property real toleranceY: 5
+        property real toleranceX: 10
+        property real toleranceY: 10
 
         ValueAxis {
             id: axisX
@@ -78,7 +78,7 @@ Popup {
             id: scatterSeries
             axisX: axisX
             axisY: axisY
-            markerSize: 20
+            markerSize: 30
             color: "teal"
         }
 
