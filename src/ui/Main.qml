@@ -7,6 +7,7 @@ Window {
     width: 800
     height: 480
     visible: true
+    visibility: Window.FullScreen
     color: "cadetblue"
 
     PComponent.PButton {
