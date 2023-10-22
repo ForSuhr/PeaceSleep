@@ -5,7 +5,7 @@ project(PeaceSleep VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Widgets)
+find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Widgets Multimedia)
 
 
 qt_add_executable(appPeaceSleep
@@ -65,6 +65,7 @@ set_target_properties(appPeaceSleep PROPERTIES
 target_link_libraries(appPeaceSleep
     PRIVATE Qt6::Quick
     PRIVATE Qt6::Widgets
+    PRIVATE Qt6::Multimedia
 )
 
 include(GNUInstallDirs)

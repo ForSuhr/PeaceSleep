@@ -12,10 +12,10 @@ QtObject {
         "night": night
     }
 
-    property string rain: applicationDirPath + "/sounds/rain.wav"
-    property string thunder: applicationDirPath + "/sounds/thunder.wav"
-    property string wave: applicationDirPath + "/sounds/wave.wav"
-    property string fire: applicationDirPath + "/sounds/fire.wav"
-    property string mountain: applicationDirPath + "/sounds/mountain.wav"
-    property string night: applicationDirPath + "/sounds/night.wav"
+    property string rain: "file:///" + applicationDirPath + "/sounds/rain.wav"
+    property string thunder: "file:///" + applicationDirPath + "/sounds/thunder.wav"
+    property string wave: "file:///" + applicationDirPath + "/sounds/wave.wav"
+    property string fire: "file:///" + applicationDirPath + "/sounds/fire.wav"
+    property string mountain: "file:///" + applicationDirPath + "/sounds/mountain.wav"
+    property string night: "file:///" + applicationDirPath + "/sounds/night.wav"
 }
