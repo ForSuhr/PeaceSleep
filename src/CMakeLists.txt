@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(PeaceSleepProject VERSION 1.0 LANGUAGES CXX)
+project(PeaceSleep VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Widgets)
 
 
-qt_add_executable(PeaceSleep
+qt_add_executable(appPeaceSleep
     main.cpp
     "ui/assets/appIcon/PeaceSleep.rc"
 )
@@ -18,7 +18,7 @@ set_source_files_properties(ui/IconSet.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE
 set_source_files_properties(ui/SoundSet.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 
 
-qt_add_qml_module(PeaceSleep
+qt_add_qml_module(appPeaceSleep
     URI PeaceSleep
     VERSION 1.0
     RESOURCES
@@ -54,7 +54,7 @@ qt_add_qml_module(PeaceSleep
         ui/SoundBallCreator.js
 )
 
-set_target_properties(PeaceSleep PROPERTIES
+set_target_properties(appPeaceSleep PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER com.forsuhr.peacesleep
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -62,13 +62,13 @@ set_target_properties(PeaceSleep PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-target_link_libraries(PeaceSleep
+target_link_libraries(appPeaceSleep
     PRIVATE Qt6::Quick
     PRIVATE Qt6::Widgets
 )
 
 include(GNUInstallDirs)
-install(TARGETS PeaceSleep
+install(TARGETS appPeaceSleep
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
