@@ -4,8 +4,8 @@ import "PComponent" as PComponent
 
 Window {
     id: window
-    width: 800
-    height: 480
+    //    width: 800
+    //    height: 480
     visible: true
     visibility: Window.FullScreen
     color: "cadetblue"
