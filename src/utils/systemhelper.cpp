@@ -2,5 +2,5 @@
 
 void SystemHelper::shutdownRaspberryPi()
 {
-    QProcess::startDetached("shutdown -P now");
+    QProcess::startDetached("sudo shutdown -P now");
 }
