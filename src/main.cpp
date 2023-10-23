@@ -4,11 +4,14 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include "utils/systemhelper.h"
+
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
 
     /*qml register*/
+    qmlRegisterType<SystemHelper>("PeaceSleep.SystemHelper", 1, 0, "SystemHelper");
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/PeaceSleep/ui/Globals.qml")), "PeaceSleep.Globals", 1, 0, "Globals");
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/PeaceSleep/ui/IconSet.qml")), "PeaceSleep.IconSet", 1, 0, "IconSet");
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/PeaceSleep/ui/SoundSet.qml")), "PeaceSleep.SoundSet", 1, 0, "SoundSet");

@@ -28,6 +28,7 @@ qt_add_qml_module(appPeaceSleep
         ui/assets/icons/menu.svg
         ui/assets/icons/play.svg
         ui/assets/icons/stop.svg
+        ui/assets/icons/shutdown.svg
         ui/assets/icons/stopwatch.svg
         ui/assets/icons/rain.svg
         ui/assets/icons/thunder.svg
@@ -52,6 +53,9 @@ qt_add_qml_module(appPeaceSleep
         ui/PComponent/PDial.qml
         # JS
         ui/SoundBallCreator.js
+    SOURCES
+        utils/systemhelper.h
+        utils/systemhelper.cpp
 )
 
 set_target_properties(appPeaceSleep PROPERTIES

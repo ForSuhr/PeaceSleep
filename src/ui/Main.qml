@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Window
 import "PComponent" as PComponent
+import PeaceSleep.SystemHelper
 
 Window {
     id: window
@@ -118,5 +119,21 @@ Window {
             y: 160
             mainVolume: dial.value
         }
+    }
+
+    PComponent.PButton {
+        id: shutdownButton
+        x: parent.width - width - 10
+        y: parent.height - height - 10
+        width: 48
+        height: 48
+        icon.width: 48
+        icon.height: 48
+        icon.source: IconSet.shutdown
+        onClicked: systemHelper.shutdownRaspberryPi()
+    }
+
+    SystemHelper {
+        id: systemHelper
     }
 }
