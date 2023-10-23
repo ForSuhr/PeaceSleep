@@ -130,10 +130,10 @@ Window {
         icon.width: 48
         icon.height: 48
         icon.source: IconSet.shutdown
-        onClicked: systemHelper.shutdownRaspberryPi()
+        onClicked: Qt.quit() //systemHelper.shutdownRaspberryPi()
     }
 
-    SystemHelper {
-        id: systemHelper
-    }
+    //    SystemHelper {
+    //        id: systemHelper
+    //    }
 }
